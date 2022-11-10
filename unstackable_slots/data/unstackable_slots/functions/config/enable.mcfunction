@@ -1,0 +1,1 @@
+scoreboard players set enable USS.vars 1

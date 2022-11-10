@@ -1,0 +1,10 @@
+{
+    "criteria": {
+        "inv_changed": {
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "rewards": {
+        "function": "unstackable_slots:advancements/inv_changed"
+    }
+}
