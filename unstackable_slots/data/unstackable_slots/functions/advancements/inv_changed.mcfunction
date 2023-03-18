@@ -41,7 +41,7 @@ execute store result score @s USS.armor.feet run data get entity @s Inventory[{S
 execute store result score @s USS.weapon.offhand run data get entity @s Inventory[{Slot:-106b}].Count
 
 # shared_inventory (https://github.com/Juloos/MCDatapack.SharedInventory) compatibility
-execute store result score shinv_compatibility USS.vars if score enabled shinv.vars matches 0
+execute store result score shinv_compatibility USS.vars if score enabled shinv.vars matches 1
 
 execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 0 run function unstackable_slots:inv_changed/set_count_1
 execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 0 run function unstackable_slots:inv_changed/reassign_inv
