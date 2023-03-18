@@ -40,7 +40,13 @@ execute store result score @s USS.armor.legs run data get entity @s Inventory[{S
 execute store result score @s USS.armor.feet run data get entity @s Inventory[{Slot:100b}].Count
 execute store result score @s USS.weapon.offhand run data get entity @s Inventory[{Slot:-106b}].Count
 
-execute if score enable USS.vars matches 1 run function unstackable_slots:inv_changed/set_count_1
-execute if score enable USS.vars matches 1 run function unstackable_slots:inv_changed/reassign_inv
+# shared_inventory (https://github.com/Juloos/MCDatapack.SharedInventory) compatibility
+execute store result score shinv_compatibility USS.vars if score enabled shinv.vars matches 0
+
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 0 run function unstackable_slots:inv_changed/set_count_1
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 0 run function unstackable_slots:inv_changed/reassign_inv
+
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if @s[tag=shinv.group_leader] run function unstackable_slots:inv_changed/set_count_1
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if @s[tag=shinv.group_leader] run function unstackable_slots:inv_changed/reassign_inv
 
 advancement revoke @s only unstackable_slots:inv_changed
