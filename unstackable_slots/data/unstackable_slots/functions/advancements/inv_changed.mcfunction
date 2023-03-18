@@ -46,7 +46,10 @@ execute store result score shinv_compatibility USS.vars if data storage minecraf
 execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 0 run function unstackable_slots:inv_changed/set_count_1
 execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 0 run function unstackable_slots:inv_changed/reassign_inv
 
-execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if entity @s[tag=shinv.group_leader] run function unstackable_slots:inv_changed/set_count_1
-execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if entity @s[tag=shinv.group_leader] run function unstackable_slots:inv_changed/reassign_inv
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if entity @s[scores={shinv.gpid=0}] run function unstackable_slots:inv_changed/set_count_1
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if entity @s[scores={shinv.gpid=0}] run function unstackable_slots:inv_changed/reassign_inv
+
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if entity @s[scores={shinv.gpid=1..},tag=shinv.group_leader] run function unstackable_slots:inv_changed/set_count_1
+execute if score enable USS.vars matches 1 if score shinv_compatibility USS.vars matches 1 if entity @s[scores={shinv.gpid=1..},tag=shinv.group_leader] run function unstackable_slots:inv_changed/reassign_inv
 
 advancement revoke @s only unstackable_slots:inv_changed
