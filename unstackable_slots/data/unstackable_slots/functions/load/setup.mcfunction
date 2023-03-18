@@ -46,3 +46,6 @@ scoreboard objectives add USS.weapon.offhand dummy
 scoreboard players set id_pointer USS.vars -2147483648
 
 scoreboard players set enable USS.vars 0
+
+
+data modify storage minecraft:juloos.datapacks unstackable_slots set value 1
